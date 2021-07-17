@@ -1,0 +1,2 @@
+rootProject.name = "suitmedia"
+include ':app'

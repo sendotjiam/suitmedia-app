@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">suitmedia</string>
+    <string name="next">next</string>
+    <string name="masukkan_nama">Masukkan nama</string>
+    <string name="nama">Nama:</string>
+    <string name="pilih_event">Pilih Event</string>
+    <string name="pilih_guest">Pilih Guest</string>
+</resources>
