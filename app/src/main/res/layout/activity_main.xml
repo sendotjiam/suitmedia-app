@@ -5,23 +5,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@drawable/bg_validation">
+
+    <TextView
+        android:id="@+id/tv_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/selamat_datang"
+        android:gravity="center"
+        style="@style/TextTitleWhite"
+        android:layout_marginBottom="48dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_upload_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sertakan_gambar_profil_anda_n_untuk_melengkapi_profil"
+        android:layout_below="@id/tv_welcome"
+        android:gravity="center"
+        style="@style/TextRegular"
+        android:layout_marginBottom="48dp"
+        />
+
+    <ImageButton
+        android:id="@+id/ib_upload_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_upload_photo"
+        android:background="@drawable/btn_add_photo"
+        android:layout_marginBottom="64dp"
+        android:layout_centerHorizontal="true"/>
 
     <EditText
         android:id="@+id/et_input_name"
+        style="@style/TextTitleWhite"
+        android:textColorHint="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/masukkan_nama"
-        android:layout_centerInParent="true"
-        style="@style/TextTitle"
-        android:layout_marginBottom="24dp"/>
+        android:layout_below="@id/ib_upload_photo"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"
+        android:padding="16dp"
+        android:background="@drawable/custom_et"
+        android:hint="@string/masukkan_nama" />
+
     <Button
         android:id="@+id/btn_next"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/et_input_name"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/custom_btn"
         android:text="@string/next"
-        android:textAllCaps="false"
+        style="@style/TextButton"
         android:onClick="next"/>
 
 </RelativeLayout>

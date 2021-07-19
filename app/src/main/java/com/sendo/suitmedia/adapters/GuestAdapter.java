@@ -48,11 +48,13 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull GuestAdapter.ViewHolder holder, int position) {
         Guest guest = listGuest.get(position);
+        int month = Integer.parseInt(splitTrimBirthdate(guest)[1]);
         holder.ivItemImg.setImageResource(guest.getGuestImg());
 //        Picasso.get()
 //                .load(guest.getGuestImg())
 //                .into(holder.ivItemImg);
         holder.tvItemName.setText(guest.getGuestName());
+        holder.tvItemPrimeNumber.setText(isBirthdateMonthPrime(month) ? "Is PRIME Month" : "Not PRIME Month");
     }
 
     @Override
@@ -60,9 +62,25 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.ViewHolder> 
         return listGuest.size();
     }
 
+    private String[] splitTrimBirthdate(Guest guest) {
+        String date = guest.getGuestBirthdate();
+        return date.split("-");
+    }
+
+    private boolean isBirthdateMonthPrime(int month) {
+        if (month <= 1) {
+            return false;
+        }
+        for (int i = 2; i < month; i++) {
+            if (month % i == 0) return false;
+        }
+        return true;
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ImageView ivItemImg;
         TextView tvItemName;
+        TextView tvItemPrimeNumber;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -73,22 +91,20 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.ViewHolder> 
         private void initialize() {
             ivItemImg = itemView.findViewById(R.id.iv_item_guest_img);
             tvItemName = itemView.findViewById(R.id.tv_item_guest_name);
+            tvItemPrimeNumber = itemView.findViewById(R.id.tv_item_guest_prime_month);
         }
 
         @Override
         public void onClick(View view) {
             Guest guest = listGuest.get(getAdapterPosition());
-            Log.v("DATE", guest.getGuestName());
-            checkGuestBirthdate(guest);
+            int day = Integer.parseInt(splitTrimBirthdate(guest)[2]);
+            checkGuestBirthdate(day);
             saveGuestName(guest);
             context.startActivity(new Intent(context, ChooseActivity.class));
             ((GuestActivity) context).finish();
         }
 
-        private void checkGuestBirthdate(Guest guest) {
-            String date = guest.getGuestBirthdate();
-            String[] trimDateValues = date.split("-");
-            int day = Integer.parseInt(trimDateValues[2]);
+        private void checkGuestBirthdate(int day) {
             if (day % 2 == 0 && day % 3 == 0) Toast.makeText(context, "iOS", Toast.LENGTH_SHORT).show();
             else if (day % 2 == 0) Toast.makeText(context, "Blackberry", Toast.LENGTH_SHORT).show();
             else if (day % 3 == 0) Toast.makeText(context, "Android", Toast.LENGTH_SHORT).show();

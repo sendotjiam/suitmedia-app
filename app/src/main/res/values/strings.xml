@@ -5,4 +5,9 @@
     <string name="nama">Nama:</string>
     <string name="pilih_event">Pilih Event</string>
     <string name="pilih_guest">Pilih Guest</string>
+    <string name="sertakan_gambar_profil_anda_n_untuk_melengkapi_profil">Sertakan gambar profil Anda untuk melengkapi profil.</string>
+    <string name="selamat_datang">Selamat Datang!</string>
+    <string name="open_map">open map</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

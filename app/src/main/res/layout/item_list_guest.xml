@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginBottom="8dp"
+    android:layout_margin="16dp"
     >
     <ImageView
         android:id="@+id/iv_item_guest_img"
@@ -12,12 +12,25 @@
         tools:src="@tools:sample/avatars"
         android:scaleType="centerCrop"
         />
-    <TextView
-        android:id="@+id/tv_item_guest_name"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Test"
-        android:layout_gravity="center"
-        android:gravity="center"
-        style="@style/TextTitle.TextGuestName"/>
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/tv_item_guest_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Test"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            style="@style/TextTitleWhite.TextGuestName"/>
+        <TextView
+            android:id="@+id/tv_item_guest_prime_month"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Test"
+            android:gravity="center"
+            style="@style/TextInfo.TextGuestInfo"/>
+    </LinearLayout>
 </FrameLayout>

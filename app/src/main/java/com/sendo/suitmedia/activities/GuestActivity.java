@@ -31,7 +31,6 @@ import retrofit2.Retrofit;
 public class GuestActivity extends AppCompatActivity {
 
     RecyclerView rvGuest;
-    TextView tvError;
     GuestAdapter guestAdapter;
     List<Guest> guestList = new ArrayList<>();
     ProgressDialog progressDialog;
@@ -42,7 +41,6 @@ public class GuestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_guest);
         getSupportActionBar().setTitle("GUEST");
 
-        tvError = findViewById(R.id.tv_error);
         rvGuest = findViewById(R.id.rv_guest);
         rvGuest.setHasFixedSize(true);
 
@@ -85,7 +83,7 @@ public class GuestActivity extends AppCompatActivity {
                 android.R.color.transparent
         );
         Runnable progressDialogRunnable = () -> progressDialog.cancel();
-        Handler progresDialogHandler = new Handler();
-        progresDialogHandler.postDelayed(progressDialogRunnable, 5000);
+        Handler progressDialogHandler = new Handler();
+        progressDialogHandler.postDelayed(progressDialogRunnable, 5000);
     }
 }

@@ -2,9 +2,10 @@ package com.sendo.suitmedia.models;
 
 import com.sendo.suitmedia.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Event {
+public class Event implements Serializable {
     private static ArrayList<Event> eventList;
 
     private int eventImg;

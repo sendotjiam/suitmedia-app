@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.EventActivity"
-    android:padding="16dp"
-    >
-
+    tools:context=".activities.MapActivity">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_event"
+        android:padding="16dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-</LinearLayout>
+        android:layout_height="wrap_content"/>
+    <FrameLayout
+        android:id="@+id/frame"
+        android:layout_below="@id/rv_event"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>
